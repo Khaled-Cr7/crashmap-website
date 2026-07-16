@@ -7,7 +7,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* Colors */
   --color-bg: #0a1420;
   --color-bg-alt: #0d1b2e;
   --color-card: #10233b;
@@ -21,11 +20,9 @@
   --color-high: #f5a623;
   --color-low: #2dd4bf;
 
-  /* Type */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Layout */
   --max-width: 1080px;
   --radius: 14px;
   --radius-sm: 8px;
@@ -78,7 +75,7 @@ img {
   padding: 0 24px;
 }
 
-/* ---------- Eyebrow label (teal, tracked-out caps) ---------- */
+/* ---------- Eyebrow label ---------- */
 .eyebrow {
   display: inline-block;
   font-family: var(--font-body);
@@ -224,9 +221,8 @@ nav.site-nav a.active {
   font-weight: 500;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive: shared header/footer ---------- */
 @media (max-width: 640px) {
-  /* Push header container to stack vertically (Logo top, Nav bar bottom) */
   .site-header .container {
     flex-direction: column;
     gap: 16px;
@@ -235,23 +231,21 @@ nav.site-nav a.active {
     padding-bottom: 14px;
   }
 
-  /* CHOICE 2: Stack tabs vertically so everyone stays alone in a row */
   nav.site-nav {
     display: flex;
-    flex-direction: column; /* Forces them into individual rows */
+    flex-direction: column;
     align-items: center;
-    gap: 12px; /* Visual spacing between the rows */
+    gap: 12px;
     width: 100%;
   }
-  
+
   nav.site-nav a {
-    font-size: 0.95rem; /* Can keep it standard size since it has a full row */
+    font-size: 0.95rem;
     text-align: center;
     width: 100%;
     padding: 4px 0;
   }
 
-  /* Center the footer text and Instagram link when they stack */
   .site-footer .container {
     flex-direction: column;
     align-items: center;
@@ -289,32 +283,62 @@ nav.site-nav a.active {
   margin-bottom: 36px;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 56px;
-}
-
+/* ---------- Stat strip (icon + number + label) ---------- */
 .stat-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
   border-top: 1px solid var(--color-card-border);
   padding-top: 28px;
 }
 
-.stat-strip .stat-num {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-amber);
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.stat-strip .stat-label {
-  font-size: 0.82rem;
+.stat-icon {
+  color: var(--color-amber);
+  flex-shrink: 0;
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-amber);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
   color: var(--color-text-muted);
-  margin-top: 4px;
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-card-border);
+}
+
+@media (max-width: 640px) {
+  .stat-strip {
+    gap: 18px;
+  }
+  .stat-divider {
+    display: none;
+  }
+  .stat-item {
+    width: 100%;
+  }
 }
 
 /* ---------- Tool cards on homepage ---------- */
@@ -392,10 +416,6 @@ nav.site-nav a.active {
 @media (max-width: 720px) {
   .tools-grid {
     grid-template-columns: 1fr;
-  }
-  .stat-strip {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 20px;
   }
 }
 
