@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blackspot Map — CrashMap</title>
+  <meta name="description" content="Interactive map of documented road accident blackspots in Shah Alam." />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blackspot Map — CrashMap" />
+  <meta property="og:description" content="See documented accident blackspots and get defensive driving guidance for each one." />
+  <meta property="og:image" content="PASTE_YOUR_LIVE_SITE_URL_HERE/assets/images/og-image.png" />
+  <meta property="og:url" content="PASTE_YOUR_LIVE_SITE_URL_HERE/map.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg class="logo-pin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8Z" fill="#f5a623"/>
+          <circle cx="12" cy="10" r="3" fill="#0a1420"/>
+        </svg>
+        CrashMap
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="map.html" class="active">Blackspot Map</a>
+        <a href="safety-check.html">Car Safety Check</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="page-header">
+        <span class="eyebrow">Currently Covering Shah Alam · 15 Locations</span>
+        <h1>Blackspot Map</h1>
+        <p class="lede">
+          Every pin below is a real, sourced accident location. We're starting with Shah Alam —
+          tap a pin to see why it's dangerous and what to do when you approach it.
+        </p>
+      </div>
+
+      <div class="map-toolbar">
+        <div class="legend">
+          <div class="legend-item"><span class="legend-dot critical"></span> Critical</div>
+          <div class="legend-item"><span class="legend-dot high"></span> High</div>
+          <div class="legend-item"><span class="legend-dot low"></span> Low</div>
+        </div>
+      </div>
+
+      <div id="map"></div>
+      <p class="map-status" id="map-status">Loading blackspot data…</p>
+
+      <div class="map-footer-actions">
+        <p class="hint">
+          Noticed a dangerous spot that isn't on the map yet? Report it below — our team
+          reviews every submission and adds verified hazards to the map.
+        </p>
+        <a
+          href="PASTE_HAZARD_FORM_RESPONDER_LINK_HERE"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary"
+        >Report a Hazard</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CrashMap · SDG 3 Target 3.6 · Road Safety</p>
+      <a href="https://instagram.com/crashmap_roadsafety_apu" target="_blank" class="ig-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+        </svg>
+        @crashmap_roadsafety_apu
+      </a>
+    </div>
+  </footer>
+
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

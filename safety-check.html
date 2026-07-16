@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Safety Check — CrashMap</title>
+  <meta name="description" content="Get an instant roadworthiness rating for your vehicle." />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/images/favicon-180.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Car Safety Check — CrashMap" />
+  <meta property="og:description" content="Get an instant Critical / High / Low roadworthiness rating for your vehicle." />
+  <meta property="og:image" content="PASTE_YOUR_LIVE_SITE_URL_HERE/assets/images/og-image.png" />
+  <meta property="og:url" content="PASTE_YOUR_LIVE_SITE_URL_HERE/safety-check.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <svg class="logo-pin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8Z" fill="#f5a623"/>
+          <circle cx="12" cy="10" r="3" fill="#0a1420"/>
+        </svg>
+        CrashMap
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="map.html">Blackspot Map</a>
+        <a href="safety-check.html" class="active">Car Safety Check</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="page-header">
+        <span class="eyebrow">Free · Instant · No Account Needed</span>
+        <h1>Car Safety Check</h1>
+        <p class="lede">
+          Answer a few quick questions about your vehicle and yourself before a drive.
+          You'll get an instant Critical / High / Low roadworthiness rating with a
+          recommendation — takes under a minute.
+        </p>
+      </div>
+
+      <!-- ===================== FORM ===================== -->
+      <form id="sc-form" class="sc-form" novalidate>
+
+        <fieldset class="sc-question">
+          <div class="sc-question-title">1. What's the condition of your brakes?</div>
+          <div class="sc-options">
+            <label class="sc-option"><input type="radio" name="brakes" value="good" required> Good</label>
+            <label class="sc-option"><input type="radio" name="brakes" value="worn"> Worn</label>
+            <label class="sc-option"><input type="radio" name="brakes" value="replace"> Needs replacement</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sc-question">
+          <div class="sc-question-title">2. What's the condition of your tyres?</div>
+          <div class="sc-options">
+            <label class="sc-option"><input type="radio" name="tyres" value="good" required> Good</label>
+            <label class="sc-option"><input type="radio" name="tyres" value="worn"> Worn</label>
+            <label class="sc-option"><input type="radio" name="tyres" value="bald"> Bald or damaged</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sc-question">
+          <div class="sc-question-title">3. Are your lights working? (headlights, brake lights, indicators)</div>
+          <div class="sc-options">
+            <label class="sc-option"><input type="radio" name="lights" value="yes" required> Yes, all working</label>
+            <label class="sc-option"><input type="radio" name="lights" value="no"> No, one or more not working</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sc-question">
+          <div class="sc-question-title">4. When was your last service?</div>
+          <div class="sc-options">
+            <label class="sc-option"><input type="radio" name="service" value="under6" required> Under 6 months</label>
+            <label class="sc-option"><input type="radio" name="service" value="6to12"> 6–12 months</label>
+            <label class="sc-option"><input type="radio" name="service" value="over12"> Over 12 months / never serviced</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sc-question">
+          <div class="sc-question-title">5. Have you had at least 8 hours of sleep?</div>
+          <div class="sc-options">
+            <label class="sc-option"><input type="radio" name="sleep" value="yes" required> Yes</label>
+            <label class="sc-option"><input type="radio" name="sleep" value="no"> No</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sc-question">
+          <div class="sc-question-title">6. Have you taken any medication that may cause drowsiness? (e.g. flu medication)</div>
+          <div class="sc-options">
+            <label class="sc-option"><input type="radio" name="medication" value="yes" required> Yes</label>
+            <label class="sc-option"><input type="radio" name="medication" value="no"> No</label>
+          </div>
+        </fieldset>
+
+        <p class="sc-error" id="sc-error">Please answer every question before submitting.</p>
+
+        <div class="sc-submit-row">
+          <button type="submit" class="btn btn-primary btn-block">Get My Rating</button>
+        </div>
+      </form>
+
+      <!-- ===================== RESULT ===================== -->
+      <div class="card sc-result" id="sc-result">
+        <div class="rating-label">Your Roadworthiness Rating</div>
+        <div class="rating-badge" id="rating-badge">—</div>
+        <p class="recommendation" id="rating-recommendation"></p>
+        <button type="button" class="btn btn-outline sc-retry" id="sc-retry">Check Again</button>
+        <p class="sc-status" id="sc-status"></p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CrashMap · SDG 3 Target 3.6 · Road Safety</p>
+      <a href="https://instagram.com/crashmap_roadsafety_apu" target="_blank" class="ig-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+        </svg>
+        @crashmap_roadsafety_apu
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/safety-check.js"></script>
+</body>
+</html>
