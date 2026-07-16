@@ -226,30 +226,29 @@ nav.site-nav a.active {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  /* Keep header container stacking vertically (Logo top, Nav bar bottom) */
+  /* Push header container to stack vertically (Logo top, Nav bar bottom) */
   .site-header .container {
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     align-items: center;
     padding-top: 14px;
     padding-bottom: 14px;
   }
 
-  /* Force all tabs into a single, perfectly centered row */
+  /* CHOICE 2: Stack tabs vertically so everyone stays alone in a row */
   nav.site-nav {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column; /* Forces them into individual rows */
     align-items: center;
-    flex-wrap: nowrap; /* Prevents them from breaking into multiple rows */
-    gap: 16px; /* Balanced spacing so they stay in one clean line */
+    gap: 12px; /* Visual spacing between the rows */
     width: 100%;
   }
   
   nav.site-nav a {
-    font-size: 0.82rem; /* Clean, slightly smaller size to ensure text fits easily */
-    white-space: nowrap; /* Prevents individual link text from breaking */
+    font-size: 0.95rem; /* Can keep it standard size since it has a full row */
     text-align: center;
+    width: 100%;
+    padding: 4px 0;
   }
 
   /* Center the footer text and Instagram link when they stack */
