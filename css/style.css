@@ -226,12 +226,31 @@ nav.site-nav a.active {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
+  /* Push header navigation to a second row and center it */
+  .site-header .container {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
   nav.site-nav {
-    gap: 16px;
+    gap: 20px; /* Gives links plenty of breathing room on a new row */
   }
+  
   nav.site-nav a {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
   }
+
+  /* Center the footer text and Instagram link when they stack */
+  .site-footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
   .container {
     padding: 0 18px;
   }
