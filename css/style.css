@@ -235,12 +235,19 @@ nav.site-nav a.active {
     padding-bottom: 14px;
   }
 
+  /* Force the tabs to center perfectly on the screen */
   nav.site-nav {
-    gap: 20px; /* Gives links plenty of breathing room on a new row */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows them to stack neatly if the screen is tiny */
+    gap: 24px; /* Increases spacing so Home and Car Safety push further away from the map tab */
+    width: 100%;
   }
   
   nav.site-nav a {
     font-size: 0.85rem;
+    text-align: center;
   }
 
   /* Center the footer text and Instagram link when they stack */
