@@ -226,27 +226,29 @@ nav.site-nav a.active {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 640px) {
-  /* Push header navigation to a second row and center it */
+  /* Keep header container stacking vertically (Logo top, Nav bar bottom) */
   .site-header .container {
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     align-items: center;
     padding-top: 14px;
     padding-bottom: 14px;
   }
 
-  /* Force the tabs to center perfectly on the screen */
+  /* Force all tabs into a single, perfectly centered row */
   nav.site-nav {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allows them to stack neatly if the screen is tiny */
-    gap: 24px; /* Increases spacing so Home and Car Safety push further away from the map tab */
+    flex-wrap: nowrap; /* Prevents them from breaking into multiple rows */
+    gap: 16px; /* Balanced spacing so they stay in one clean line */
     width: 100%;
   }
   
   nav.site-nav a {
-    font-size: 0.85rem;
+    font-size: 0.82rem; /* Clean, slightly smaller size to ensure text fits easily */
+    white-space: nowrap; /* Prevents individual link text from breaking */
     text-align: center;
   }
 
@@ -259,7 +261,7 @@ nav.site-nav a.active {
   }
 
   .container {
-    padding: 0 18px;
+    padding: 0 16px;
   }
 }
 
